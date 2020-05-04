@@ -220,6 +220,7 @@ default_border none
 for_window [class="Blueman-manager"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="Seahorse"] floating enable
+for_window [class="Pavucontrol"] floating enable
 for_window [floating] border normal
 for_window [class="Yad" title="yad-calendar"] border none
 
