@@ -10,6 +10,7 @@ My dotfiles for configuring:
 
 ## Screenshots
 ![screenshot 1](https://github.com/arman1371/dotfiles/blob/master/screenshots/s1.png)
+![screenshot 2](https://github.com/arman1371/dotfiles/blob/master/screenshots/s2.png)
 
 ## External resources and inspiration
 ### Scripts
