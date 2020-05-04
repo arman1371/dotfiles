@@ -1,0 +1,285 @@
+[colors]
+background = #882E3440
+white = #D8DEE9
+red = #BF616A
+yellow = #EBCB8B
+green = #A3BE8C
+purple = #B48EAD
+blue = #81A1C1
+orange = #D08770
+
+[bar/top_bar]
+
+font-0 = "DejaVu Sans:style=Regular:pixelsize=11;3"
+font-1 = "Font Awesome 5 Pro Solid:style=Solid:pixelsize=12;2"
+font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=12;2"
+
+width = 100%
+height = 25
+background = ${colors.background}
+padding = 1
+tray-position = right
+tray-padding = 4
+
+modules-center = i3
+modules-left = power_menu dunst_state popup-calendar
+
+[bar/bottom_bar]
+
+font-0 = "DejaVu Sans:style=Regular:pixelsize=10;3"
+font-1 = "Font Awesome 5 Pro Solid:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=10;2"
+font-3 = "monospace Regular:style=Regular:pixelsize=9;2"
+
+width = 100%
+height = 19
+background = ${colors.background}
+padding = 1
+bottom = true
+
+modules-right = net_stat xkeyboard memory cpu battery wlan eth ping
+modules-left = backlight volume player
+
+#################################################
+# eth                                           #
+#################################################
+[module/eth]
+type = internal/network
+interface = enp4s0
+interval = 1
+
+format-connected = <label-connected>
+format-connected-padding = 1
+format-connected-foreground = ${colors.green}
+label-connected =  Wired
+
+#################################################
+# wlan                                          #
+#################################################
+[module/wlan]
+type = internal/network
+interface = wlp5s0
+interval = 1
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-foreground = ${colors.green}
+format-connected-padding = 1
+label-connected = %essid%
+
+format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.red}
+format-disconnected-padding = 1
+label-disconnected = 
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+
+
+#################################################
+# battery                                       #
+#################################################
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+time-format = %H:%M
+poll-interval = 10
+
+format-charging = <animation-charging> <label-charging>
+format-charging-foreground = ${colors.green}
+format-charging-padding = 1
+label-charging = %percentage%%(%time%)
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-padding = 1
+format-discharging-foreground = ${colors.red}
+label-discharging = %percentage%%(%time%)
+
+format-full = <label-full>
+format-full-prefix = " "
+format-full-padding = 1
+format-full-foreground = ${colors.white}
+label-full = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+#################################################
+# cpu                                           #
+#################################################
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.yellow}
+label =  %percentage:02%%
+
+#################################################
+# memory                                        #
+#################################################
+[module/memory]
+type = internal/memory
+interval = 1
+
+format-prefix = " "
+format-padding = 1
+format-foreground = ${colors.purple}
+label = %percentage_used%%(%percentage_swap_used%%)
+
+#################################################
+# xkeyboard                                     #
+#################################################
+[module/xkeyboard]
+type = internal/xkeyboard
+
+format = <label-layout>
+format-foreground = ${colors.blue}
+label-layout =  %icon%
+label-layout-padding = 1
+
+layout-icon-0 = us;US
+layout-icon-1 = ir;IR
+
+#################################################
+# volume                                        #
+#################################################
+[module/volume]
+type = custom/script
+tail = true
+
+label=%output%
+
+exec = ~/.config/polybar/scripts/pulseaudio-control.bash listen
+click-right = exec pavucontrol &
+click-left = ~/.config/polybar/scripts/pulseaudio-control.bash togmute
+click-middle = ~/.config/polybar/scripts/pulseaudio-control.bash next-sink
+scroll-up = ~/.config/polybar/scripts/pulseaudio-control.bash up
+scroll-down = ~/.config/polybar/scripts/pulseaudio-control.bash down
+label-padding = 2
+label-foreground = ${colors.white}
+
+#################################################
+# i3                                            #
+#################################################
+[module/i3]
+type = internal/i3
+index-sort = true
+
+format = <label-state>
+
+label-focused = %icon%
+label-focused-foreground = ${colors.green}
+label-focused-padding = 4
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+
+label-visible = %icon%
+label-visible-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.red}
+label-urgent-padding = 2
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 10;
+
+#################################################
+# ping                                          #
+#################################################
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/scripts/ping.sh
+interval = 5
+
+#################################################
+# net_stat                                      #
+#################################################
+[module/net_stat]
+type = custom/script
+interval = 1
+
+exec = ~/.config/polybar/scripts/net_stat.sh
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.green}
+label = %output%
+
+
+#################################################
+# player                                       #
+#################################################
+[module/player]
+type = custom/script
+exec = /opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '   %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:}  %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:}  %{A} {title} - {artist}' --icon-stopped '' --icon-playing '' --icon-paused ''
+tail = true
+label-font = 4
+
+#################################################
+# power menu                                    #
+#################################################
+[module/power_menu]
+type = custom/script
+exec = echo ''
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.red}
+label = %{A1:~/.config/polybar/scripts/power_menu.sh:} %output% %{A}
+
+#################################################
+# backlight                                     #
+#################################################
+[module/backlight]
+type = internal/xbacklight
+output = eDP1
+
+format = <label>
+label =  %percentage%%
+format-foreground = ${colors.yellow}
+
+#################################################
+# dunst state                                   #
+#################################################
+[module/dunst_state]
+type = custom/script
+exec = cat ~/.config/polybar/scripts/dunst_toggle/state
+interval = 1
+
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.white}
+label = %{A1:~/.config/polybar/scripts/dunst_toggle/toggle.sh:} %output% %{A}
+
+#################################################
+# popup-calendar                                #
+#################################################
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/scripts/popup-calendar.sh
+interval = 1
+click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
