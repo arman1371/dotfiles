@@ -26,6 +26,7 @@ My dotfiles for configuring:
 - [spotify-nord-theme](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Nord)
 ### Colors
 - [Nord](https://www.nordtheme.com/)
+- [app-theme](https://www.nordtheme.com/ports)
 ### Font
 - [FontAwesome](https://fontawesome.com/)
 ### Wallpaper
