@@ -12,6 +12,7 @@ My dotfiles for configuring:
 ![screenshot 1](https://github.com/arman1371/dotfiles/blob/master/screenshots/s1.png)
 ![screenshot 2](https://github.com/arman1371/dotfiles/blob/master/screenshots/s2.png)
 ![screenshot 3](https://github.com/arman1371/dotfiles/blob/master/screenshots/s3.png)
+![screenshot 4](https://github.com/arman1371/dotfiles/blob/master/screenshots/s4.png)
 
 ## External resources and inspiration
 ### Scripts
@@ -22,6 +23,7 @@ My dotfiles for configuring:
 - [polybar-pulseaudio-control](https://github.com/marioortizmanero/polybar-pulseaudio-control)
 - [rofi-nord-theme](https://github.com/lokesh-krishna/dotfiles)
 - [cli-visualizer](https://github.com/dpayne/cli-visualizer)
+- [spotify-nord-theme](https://github.com/morpheusthewhite/spicetify-themes/tree/master/Nord)
 ### Colors
 - [Nord](https://www.nordtheme.com/)
 ### Font
