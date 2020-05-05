@@ -21,6 +21,7 @@ My dotfiles for configuring:
 - [shutdown_menu](https://github.com/vivien/i3blocks-contrib/tree/master/shutdown_menu)
 - [polybar-pulseaudio-control](https://github.com/marioortizmanero/polybar-pulseaudio-control)
 - [rofi-nord-theme](https://github.com/lokesh-krishna/dotfiles)
+- [cli-visualizer](https://github.com/dpayne/cli-visualizer)
 ### Colors
 - [Nord](https://www.nordtheme.com/)
 ### Font

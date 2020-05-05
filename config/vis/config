@@ -1,0 +1,8 @@
+colors.scheme=nord
+audio.stereo.enabled=false
+visualizer.spectrum.character=*
+visualizer.spectrum.bar.width=2
+visualizer.spectrum.bar.spacing=0
+visualizer.spectrum.smoothing.mode=monstercat
+visualizer.spectrum.falloff.mode=fill
+audio.sources=pulse
