@@ -83,7 +83,7 @@ ramp-signal-2 = 
 type = internal/battery
 battery = BAT0
 adapter = AC
-full-at = 98
+full-at = 95
 time-format = %H:%M
 poll-interval = 10
 
@@ -234,7 +234,7 @@ label = %output%
 #################################################
 [module/player]
 type = custom/script
-exec = /opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '   %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:}  %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:}  %{A} {title} - {artist}' --icon-stopped '' --icon-playing '' --icon-paused ''
+exec = /opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '   %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:}  %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:}  %{A} {:t50:{title}:}{:artist: - :}{:artist:t30:{artist}:}' -b chrome --icon-stopped '' --icon-playing '' --icon-paused ''
 tail = true
 label-font = 4
 
