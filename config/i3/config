@@ -186,9 +186,12 @@ focus_follows_mouse no
 bindsym XF86PowerOff exec --no-startup-id ~/.config/polybar/scripts/power_menu.sh
 bindsym mod1+Control+l exec --no-startup-id i3lock-fancy-rapid 8 5
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+#bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/polybar/scripts/pulseaudio-control.bash up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/polybar/scripts/pulseaudio-control.bash down
+bindsym XF86AudioMute exec --no-startup-id ~/.config/polybar/scripts/pulseaudio-control.bash togmute
 bindsym XF86AudioMicMute exec --no-startup-id amixer -q -D pulse sset Capture toggle
 
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
@@ -200,6 +203,7 @@ exec --no-startup-id dropbox
 exec --no-startup-id openfortigui
 exec --no-startup-id blueman-tray
 exec --no-startup-id copyq
+exec --no-startup-id env GDK_BACKEND=x11 safeeyes
 exec --no-startup-id ~/.config/i3/specific-workspace-startup-apps.sh
 
 
