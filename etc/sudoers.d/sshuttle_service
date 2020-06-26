@@ -1,0 +1,1 @@
+arman ALL = NOPASSWD: /home/arman/.config/polybar/scripts/sshuttle/control-sshuttle.sh

@@ -48,7 +48,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec "rofi -modi drun -show drun -theme nord"
+bindsym $mod+d exec "rofi -modi drun -show drun -theme nord -display-drun '>>'"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -197,10 +197,13 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer -q -D pulse sset Capture to
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -5
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
 
+bindsym $mod+Tab exec --no-startup-id rofi -show window -theme nord
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id openfortigui
 exec --no-startup-id davmail
 exec --no-startup-id birdtray
 exec --no-startup-id dropbox
-exec --no-startup-id openfortigui
 exec --no-startup-id blueman-tray
 exec --no-startup-id copyq
 exec --no-startup-id env GDK_BACKEND=x11 safeeyes

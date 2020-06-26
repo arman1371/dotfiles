@@ -37,7 +37,7 @@ background = ${colors.background}
 padding = 1
 bottom = true
 
-modules-right = net_stat xkeyboard memory cpu battery wlan eth ping
+modules-right = net_stat sshuttle xkeyboard memory cpu battery wlan eth ping
 modules-left = backlight volume player
 
 #################################################
@@ -234,7 +234,7 @@ label = %output%
 #################################################
 [module/player]
 type = custom/script
-exec = /opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '   %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:}  %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:}  %{A} {:t50:{title}:}{:artist: - :}{:artist:t30:{artist}:}' -b chrome --icon-stopped '' --icon-playing '' --icon-paused ''
+exec = /opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py -f '   %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py previous:}  %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:/opt/polybar-scripts/polybar-scripts/player-mpris-tail/player-mpris-tail.py next:}  %{A} {:t50:{title}:}{:artist: - :}{:artist:t30:{artist}:}' --icon-stopped '' --icon-playing '' --icon-paused '' -b chrome -b chromium
 tail = true
 label-font = 4
 
@@ -283,3 +283,16 @@ type = custom/script
 exec = ~/.config/polybar/scripts/popup-calendar.sh
 interval = 1
 click-left = ~/.config/polybar/scripts/popup-calendar.sh --popup &
+
+#################################################
+# sshuttle                                      #
+#################################################
+[module/sshuttle]
+type = custom/script
+exec = ~/.config/polybar/scripts/sshuttle/check-sshuttle.sh
+interval = 1
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.orange}
+label = %{A1:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh start:}%{A3:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh stop:}%{A2:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh restart:}%output%%{A}%{A}%{A}
