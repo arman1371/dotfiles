@@ -200,6 +200,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +5
 bindsym $mod+Tab exec --no-startup-id rofi -show window -theme nord
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/libinput-gestures
 exec --no-startup-id openfortigui
 exec --no-startup-id davmail
 exec --no-startup-id birdtray
@@ -228,6 +229,7 @@ for_window [class="Blueman-manager"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="Seahorse"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 for_window [floating] border normal
 for_window [class="Yad" title="yad-calendar"] border none
 

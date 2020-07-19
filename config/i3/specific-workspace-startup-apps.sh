@@ -4,9 +4,6 @@ if [ $(echo -e 'Yes\nNo' | rofi -theme nord -dmenu -i -lines 2 -p 'Run init apps
   exit 0;
 fi
 
-for i in {1..10}; do sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh start; if systemctl is-active --quiet sshuttle; then break; fi; sleep 1; done
-kinit -kt ~/Downloads/arman.keytab reza.yazdani@SNAPP.NET
-
 i3-msg workspace 1
 google-chrome-stable --password-store=gnome --auth-server-whitelist="*snapp.net" --auth-negotiate-delegate-whitelist="*snapp.net" &
 ~/.config/i3/wait_for_app.sh "Google Chrome"
