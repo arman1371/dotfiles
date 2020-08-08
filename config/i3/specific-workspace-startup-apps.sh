@@ -18,5 +18,5 @@ thunderbird &
 ~/.config/i3/wait_for_app.sh "Mozilla Thunderbird"
 skypeforlinux &
 ~/.config/i3/wait_for_app.sh "Skype"
-riot-desktop &
-~/.config/i3/wait_for_app.sh "Riot"
+element-desktop &
+~/.config/i3/wait_for_app.sh "Element"
