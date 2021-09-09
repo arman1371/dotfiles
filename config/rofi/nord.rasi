@@ -129,6 +129,11 @@
     text-color:       @alternate-active-foreground;
 }
 
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
 #button.selected {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
