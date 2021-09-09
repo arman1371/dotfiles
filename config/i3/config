@@ -54,6 +54,9 @@ bindsym $mod+d exec "rofi -modi drun -show drun -theme nord -display-drun '>>'"
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# Monitors
+exec --no-startup-id xrandr --output HDMI1 --auto --primary --left-of eDP1
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -140,6 +143,13 @@ bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
+
+workspace $ws1 output HDMI1
+workspace $ws2 output eDP1
+workspace $ws3 output eDP1
+workspace $ws4 output HDMI1
+workspace $ws5 output HDMI1
+
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
