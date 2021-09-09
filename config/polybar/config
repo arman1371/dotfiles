@@ -37,7 +37,7 @@ background = ${colors.background}
 padding = 1
 bottom = true
 
-modules-right = net_stat sshuttle xkeyboard memory cpu battery wlan eth ping
+modules-right = crypto net_stat sshuttle xkeyboard memory cpu battery wlan eth ping
 modules-left = backlight volume player
 
 #################################################
@@ -296,3 +296,16 @@ format = <label>
 format-padding = 1
 format-foreground = ${colors.orange}
 label = %{A1:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh start:}%{A3:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh stop:}%{A2:sudo ~/.config/polybar/scripts/sshuttle/control-sshuttle.sh restart:}%output%%{A}%{A}%{A}
+
+#################################################
+# Crypto                                        #
+#################################################
+[module/crypto]
+type = custom/script
+interval = 300
+exec = ~/.config/polybar/scripts/crypto.sh
+
+format = <label>
+format-padding = 1
+format-foreground = ${colors.yellow}
+label = %output%
